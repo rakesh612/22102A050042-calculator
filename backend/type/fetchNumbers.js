@@ -1,6 +1,6 @@
 const axios = require('axios');
 
-// Valid number type mapping
+
 const TYPE_MAP = {
   p: 'primes',
   f: 'fibo',
@@ -40,7 +40,7 @@ module.exports = async function fetchNumbersAndCompute(req, res) {
     });
   }
 
-  // Add only unique numbers with sliding window
+
   for (const num of numbers) {
     if (!windowState.includes(num)) {
       windowState.push(num);
