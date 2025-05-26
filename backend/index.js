@@ -3,7 +3,7 @@ const express = require('express');
 const fetchNumbersAndCompute = require('./type/fetchNumbers');
 
 const app = express();
-const PORT = 9876;
+const PORT = 5000;
 
 app.get('/numbers/:numberid', fetchNumbersAndCompute);
 
