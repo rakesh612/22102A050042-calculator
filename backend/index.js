@@ -8,5 +8,5 @@ const PORT = 9876;
 app.get('/numbers/:numberid', fetchNumbersAndCompute);
 
 app.listen(PORT, () => {
-  console.log(`✅ Microservice running at http://localhost:${PORT}`);
+  console.log(` Microservice running at http://localhost:${PORT}`);
 });
