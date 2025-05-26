@@ -1,6 +1,5 @@
 const axios = require('axios');
 
-
 const TYPE_MAP = {
   p: 'primes',
   f: 'fibo',
@@ -25,7 +24,11 @@ module.exports = async function fetchNumbersAndCompute(req, res) {
 
   try {
     const response = await Promise.race([
-      axios.get(apiUrl),
+      axios.get(apiUrl, {
+        headers: {
+          Authorization: `Bearer ${process.env.API_TOKEN}`
+        }
+      }),
       new Promise((_, reject) => setTimeout(() => reject(new Error('Timeout')), 500))
     ]);
 
@@ -39,7 +42,6 @@ module.exports = async function fetchNumbersAndCompute(req, res) {
       avg: average(windowState)
     });
   }
-
 
   for (const num of numbers) {
     if (!windowState.includes(num)) {
